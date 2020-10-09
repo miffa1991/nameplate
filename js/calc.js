@@ -2,6 +2,12 @@
 
 let main = document.getElementById('list_table');
 let main_big = document.getElementById('list_table_big');
+let inputModel = document.getElementsByClassName('ch_c');
+let inputModelBig = document.getElementsByClassName('ch_c_big');
+
+console.log(inputModel);
+
+
 
 
 var xmlhttp = new XMLHttpRequest();
@@ -10,15 +16,20 @@ xmlhttp.onreadystatechange = function() {
 		var myObj = JSON.parse(this.responseText);
 		//document.getElementById("list_table").innerHTML = myObj.table_1[0].img_preview;
 		//console.log(Object.keys(myObj.table).length);
-
+		
         for (let i = 0; i < Object.keys(myObj.table).length; i++) { //задаем ячейкам поля координаты
-        	//переменные для маленьких табличек
-        	let preview_wrap = document.createElement('div');
-        	let label = document.createElement('label');
-        	let img = document.createElement('img');
-        	let sw_a_in = document.createElement('span');
-        	let sw_a_title = document.createElement('span');
-        	let sw_a_thumb = document.createElement('span');
+			//переменные для маленьких табличек
+			//alert(myObj.table[i].img_model);
+			if(i == 0){ //задаем адрес макета первой таблички
+				document.getElementById('big_img').src = myObj.table[i].img_model;
+			}
+			
+					let preview_wrap = document.createElement('div');
+					let label = document.createElement('label');
+					let img = document.createElement('img');
+					let sw_a_in = document.createElement('span');
+					let sw_a_title = document.createElement('span');
+					let sw_a_thumb = document.createElement('span');
 
 
 					//переменные для большых табличек
@@ -34,7 +45,7 @@ xmlhttp.onreadystatechange = function() {
 					preview_wrap.classList.add('bi6_item');
 					preview_wrap.appendChild(label);
 					label.setAttribute('for', `ch_c${i}`);
-					label.innerHTML = `<input type='radio' name='ch_c' ${(i==0)?'checked':''} id='ch_c${i}'>`;
+					label.innerHTML = `<input type='radio' class='ch_c' name='ch_c' ${(i==0)?'checked':''} id='ch_c${i}'>`;
 					label.appendChild(sw_a_in);
 					
 					sw_a_in.appendChild(sw_a_thumb);
@@ -47,16 +58,16 @@ xmlhttp.onreadystatechange = function() {
 					label.classList.add('switch_a');
 					img.src = myObj.table[i].img_preview;
 					sw_a_title.textContent = myObj.table[i].size_small;
+					label.onclick = changeModelPlate;
 
-
-
+					
 
 					//контент для большых табличек
 					main_big.appendChild(preview_wrap_big);
 					preview_wrap_big.classList.add('bi6_item');
 					preview_wrap_big.appendChild(label_big);
 					label_big.setAttribute('for', `ch_d${i}`);
-					label_big.innerHTML = `<input type='radio' name='ch_c_big' ${(i==0)?'checked':''} id='ch_d${i}'>`;
+					label_big.innerHTML = `<input type='radio' class='ch_c_big' name='ch_c_big' ${(i==0)?'checked':''} id='ch_d${i}'>`;
 					label_big.appendChild(sw_a_in_big);
 					
 					sw_a_in_big.appendChild(sw_a_thumb_big);
@@ -67,7 +78,7 @@ xmlhttp.onreadystatechange = function() {
 					sw_a_in_big.classList.add('sw_a_in');
 					sw_a_title_big.classList.add('sw_a_title');
 					label_big.classList.add('switch_a');
-
+					label_big.onclick = changeModelPlateBig;
 
 
 
@@ -77,17 +88,28 @@ xmlhttp.onreadystatechange = function() {
 				}
 
 
+				function changeModelPlate() { //model small img
+					for(let i = 0; i < inputModel.length; i++){
+						if( inputModel[i].checked == true ){
+							document.getElementById('big_img').src = myObj.table[i].img_model;
+							console.log(myObj.table[i].img_model);
+						}
+					}
+				}
+				function changeModelPlateBig() { // model big img
+					for(let i = 0; i < inputModelBig.length; i++){
+						if( inputModelBig[i].checked == true ){
+							document.getElementById('big_img').src = myObj.table[i].img_model;
+							console.log(myObj.table[i].img_model);
+						}
+					}
+				}
+				
+
 			}
 		};
-		xmlhttp.open("GET", "json_demo.json", true);
+		xmlhttp.open("GET", "json_nameplate.json", true);
 		xmlhttp.send();
-
-
-
-
-
-
-
 
 
 
@@ -107,3 +129,4 @@ xmlhttp.onreadystatechange = function() {
 		function streetNumberChange() {
 			document.getElementById("streetNumber").textContent = document.getElementById("id3").value;
 		} 
+

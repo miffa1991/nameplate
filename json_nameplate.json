@@ -1,0 +1,114 @@
+﻿{
+	"table":
+	[
+		{
+			"name":"table_1",
+			"size_small":"620x200 MM",
+			"price_small":680,
+			"size_big":"1000x1000",
+			"price_big":1000,
+			"img_preview":"img/tabl01.png",
+			"img_model":"img/model_tabl/001.png"
+		},
+		{
+			"name":"table_2",
+			"size_small":"620x200 MM",
+			"price_small":680,
+			"size_big":"1000x1000",
+			"price_big":1000,
+			"img_preview":"img/tabl02.png",
+			"img_model":"img/model_tabl/002.png"
+		},
+		{
+			"name":"table_3",
+			"size_small":"620x200 MM",
+			"price_small":680,
+			"size_big":"1000x1000",
+			"price_big":1000,
+			"img_preview":"img/tabl03.png",
+			"img_model":"img/model_tabl/003.png"
+		},
+		{
+			"name":"table_4",
+			"size_small":"620x200 MM",
+			"price_small":680,
+			"size_big":"1000x1000",
+			"price_big":1000,
+			"img_preview":"img/tabl04.png",
+			"img_model":"img/model_tabl/004.png"
+		},
+		{
+			"name":"table_5",
+			"size_small":"620x200 MM",
+			"price_small":680,
+			"size_big":"1000x1000",
+			"price_big":1000,
+			"img_preview":"img/tabl05.png",
+			"img_model":"img/model_tabl/005.png"
+		},
+		{
+			"name":"table_6",
+			"size_small":"620x200 MM",
+			"price_small":680,
+			"size_big":"1000x1000",
+			"price_big":1000,
+			"img_preview":"img/tabl06.png",
+			"img_model":"img/model_tabl/006.png"
+		},
+		{
+			"name":"table_7",
+			"size_small":"620x200 MM",
+			"price_small":680,
+			"size_big":"1000x1000",
+			"price_big":1000,
+			"img_preview":"img/tabl07.png",
+			"img_model":"img/model_tabl/007.png"
+		},
+		{
+			"name":"table_8",
+			"size_small":"620x200 MM",
+			"price_small":680,
+			"size_big":"1000x1000",
+			"price_big":1000,
+			"img_preview":"img/tabl08.png",
+			"img_model":"img/model_tabl/008.png"
+		},
+		{
+			"name":"table_9",
+			"size_small":"620x200 MM",
+			"price_small":680,
+			"size_big":"1000x1000",
+			"price_big":1000,
+			"img_preview":"img/tabl09.png",
+			"img_model":"img/model_tabl/009.png"
+		},
+		{
+			"name":"table_10",
+			"size_small":"620x200 MM",
+			"price_small":680,
+			"size_big":"1000x1000",
+			"price_big":1000,
+			"img_preview":"img/tabl10.png",
+			"img_model":"img/model_tabl/0010.png"
+		},
+		{
+			"name":"table_11",
+			"size_small":"620x200 MM",
+			"price_small":680,
+			"size_big":"1000x1000",
+			"price_big":1000,
+			"img_preview":"img/tabl11.png",
+			"img_model":"img/model_tabl/011.png"
+		},
+		{
+			"name":"table_12",
+			"size_small":"620x200 MM",
+			"price_small":680,
+			"size_big":"1000x1000",
+			"price_big":1000,
+			"img_preview":"img/tabl12.png",
+			"img_model":"img/model_tabl/012.png"
+		}
+	]
+
+}
