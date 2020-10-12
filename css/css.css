@@ -1154,42 +1154,6 @@ label.custom_radio input+div {
   height: 30px;
   border-radius: 50%;
  }
- label.custom_radio input+div.color1r {
-  background: #007cb0;
- }
- label.custom_radio input+div.color2r {
-  background: #051867;
- }
- label.custom_radio input+div.color3r {
-  background: #800000;
- }
- label.custom_radio input+div.color4r {
-  background: #de0000;
- }
- label.custom_radio input+div.color5r {
-  background: #00380f;
- }
- label.custom_radio input+div.color6r {
-  background: #4f1c00;
- }
- label.custom_radio input+div.color7r {
-  background: #c5c6c6;
- }
- label.custom_radio input+div.color8r {
-  background: #d7b56d;
- }
- label.custom_radio input+div.color9r {
-  background: #000000;
- }
- label.custom_radio input+div.color10r {
-  background: #007828;
- }
- label.custom_radio input+div.color11r {
-  background: #e75d1c;
- }
- label.custom_radio input+div.color12r {
-  background: #f3d800;
- }
 label.custom_radio input:checked+div{
   -webkit-box-shadow: 0 0 0 10px #ffffff;
   box-shadow: 0 0 0 10px #ffffff;
