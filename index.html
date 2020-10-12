@@ -21,6 +21,7 @@
 <link rel="stylesheet" href="css/jquery.formstyler.css">
 <link rel="stylesheet" href="css/jquery.fancybox.min.css">
 <link rel="stylesheet" href="css/css.css">
+<link rel="stylesheet" href="css/nameplates.css">
 <!--[if lt IE 9]>
 	<script src="js/html5shiv.min.js"></script>
 <![endif]-->
@@ -257,7 +258,7 @@
    </div>
 
    <div class="bi5_body">
-    <label for="id19"><input type="checkbox" name="" id="id19" checked>Сверление отверстий (+50 грн)</label>
+    <label for="id19" onclick="drillingHolesPrice()"><input type="checkbox"  name="drillingHolesPrice" id="id19" checked>Сверление отверстий (+50 грн)</label>
    </div>
   </div>
  </div>
@@ -267,9 +268,9 @@
    <div class="thumb">
      <div id="big_img_container">
      <img id="big_img" src="img/tabl02b.png" alt="адресная табличка">
-     <div class="street">вулиця</div>
-     <div class="streetName">Нафтовиків</div>
-     <div id="streetNumber" class="streetNumber">15</div>
+     <div id="streetBig" class="street">вулиця</div>
+     <div id="streetNameBig" class="streetName">Нафтовиків</div>
+     <div id="streetNumberBig" class="streetNumber">15</div>
     </div>
     </div>
    <div class="tbl_overflow">
@@ -294,14 +295,14 @@
       <td>Материал</td>
       <td>Пластик ПВХ (4мм)</td>
      </tr>
-     <tr>
+     <tr id="drillingHoles">
       <td>05.</td>
       <td>Дополнительно</td>
       <td>Сверление отверстий</td>
      </tr>
     </table>
     <div class="bi7_wr1">
-     <div class="bi7i2"><span>680</span> грн</div>
+     <div class="bi7i2"><span id="">680</span> грн</div>
      <div class="bi7i2"><a data-fancybox href="#test-popup" class="btn v2_1">Заказать табличку</a>
     </div>
     </div>

@@ -148,7 +148,9 @@ xmlhttp.onreadystatechange = function () {
 xmlhttp.open("GET", "json_nameplate.json", true);
 xmlhttp.send();
 
-function changeSize() { //
+
+
+function changeSize() { //click tabs and nameplates 
 
   let checkedNumber = 0;
 
@@ -159,7 +161,6 @@ function changeSize() { //
 
         for (let i = 0; i < colectionNameplateNumber.length; i++) {
           if (colectionNameplateNumber[i].checked == true) {
-            console.log(colectionNameplateNumber[i].getAttribute('data-number'));
             checkedNumber = colectionNameplateNumber[i].getAttribute('data-number');
           }
         }
@@ -172,7 +173,6 @@ function changeSize() { //
         
         for (let i = 0; i < colectionNameplateNumberBig.length; i++) {
           if (colectionNameplateNumberBig[i].checked == true) {
-            console.log(colectionNameplateNumber[i].getAttribute('data-number'));
             checkedNumber = colectionNameplateNumberBig[i].getAttribute('data-number');
           }
         }
@@ -185,8 +185,9 @@ function changeSize() { //
 
   xmlhttp.open("GET", "json_nameplate.json", true);
   xmlhttp.send();
+  
 }
-
+  
 
 function streetChange() {
   document.getElementById("street").textContent = document.getElementById(
@@ -205,6 +206,16 @@ function streetNumberChange() {
     "id3"
   ).value;
 }
+
+function drillingHolesPrice() {
+  if(document.getElementById("id19").checked == true ){
+    document.getElementById("drillingHoles").style.display = "table-row";
+    
+  } else {
+    document.getElementById("drillingHoles").style.display = "none";
+  }
+}
+drillingHolesPrice();
 
 function isVisible(elem) {
   //проверка видимости елемента
