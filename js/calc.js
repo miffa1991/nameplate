@@ -5,13 +5,17 @@ let inputModelBig = document.getElementsByClassName("ch_c_big"); //model colecti
 let colorsBox = document.getElementById("colors_nameplate"); //colors container
 let colorInput = document.getElementsByClassName("color_input"); //color collection
 
-let tab1 = document.getElementById("tab_a1"); //color collection
-let tab2 = document.getElementById("tab_a2"); //color collection
+let colectionNameplateNumber = document.getElementsByClassName("ch_c"); //nameplate number collection
+let colectionNameplateNumberBig = document.getElementsByClassName("ch_c_big"); //nameplate number collection
+
+
+let tab1 = document.getElementById("tab_a1"); //tab1
+let tab2 = document.getElementById("tab_a2"); //tab2
 
 var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function () {
   if (this.readyState == 4 && this.status == 200) {
-    var myObj = JSON.parse(this.responseText);
+    let myObj = JSON.parse(this.responseText);
 
     for (let i = 0; i < Object.keys(myObj.table).length; i++) {
       //задаем ячейкам поля координаты
@@ -33,7 +37,7 @@ xmlhttp.onreadystatechange = function () {
       preview_wrap.classList.add("bi6_item");
       preview_wrap.appendChild(label);
       label.setAttribute("for", `ch_c${i}`);
-      label.innerHTML = `<input type='radio' class='ch_c' name='ch_c' ${
+      label.innerHTML = `<input type='radio' onclick='changeSize()' data-number='${i}' class='ch_c' name='ch_c' ${
         i == 0 ? "checked" : ""
       } id='ch_c${i}'>`;
       label.appendChild(sw_a_in);
@@ -66,7 +70,7 @@ xmlhttp.onreadystatechange = function () {
       preview_wrap_big.classList.add("bi6_item");
       preview_wrap_big.appendChild(label_big);
       label_big.setAttribute("for", `ch_d${i}`);
-      label_big.innerHTML = `<input type='radio' class='ch_c_big' name='ch_c_big' ${
+      label_big.innerHTML = `<input type='radio' onclick='changeSize()' data-number='${i}' class='ch_c_big' name='ch_c_big' ${
         i == 0 ? "checked" : ""
       } id='ch_d${i}'>`;
       label_big.appendChild(sw_a_in_big);
@@ -86,6 +90,8 @@ xmlhttp.onreadystatechange = function () {
 
       if (inputModelBig[i].checked == true) {
         document.getElementById("big_img").src = myObj.table[i].img_model;
+        document.getElementById("big_img_container").className =
+          myObj.table[i].class; // add class main img
       }
     }
 
@@ -94,6 +100,8 @@ xmlhttp.onreadystatechange = function () {
       for (let i = 0; i < inputModel.length; i++) {
         if (inputModel[i].checked == true) {
           document.getElementById("big_img").src = myObj.table[i].img_model;
+          document.getElementById("big_img_container").className =
+            myObj.table[i].class; // add class main img
         }
       }
     }
@@ -115,14 +123,14 @@ xmlhttp.onreadystatechange = function () {
         i == 1 ? "checked" : ""
       } id='idc${i}'>`;
       div_color.style.backgroundColor = myObj.colors[i].color[0];
-      console.log(myObj.colors[i].color);
+
       label_color.appendChild(div_color);
       label_color.classList.add("custom_radio");
       label_color.onclick = changeColorPlate;
       colorsBox.appendChild(label_color);
       if (colorInput[i].checked == true) {
         document.getElementById("big_img").style.backgroundColor =
-          myObj.colors[i].color;
+          myObj.colors[i].color[0];
       }
     }
 
@@ -140,14 +148,45 @@ xmlhttp.onreadystatechange = function () {
 xmlhttp.open("GET", "json_nameplate.json", true);
 xmlhttp.send();
 
-function changeSize() {
-  if (isVisible(tab1)) {
-    alert("small");
-  }
-  if (isVisible(tab2)) {
-    alert("big");
-  }
+function changeSize() { //
+
+  let checkedNumber = 0;
+
+  xmlhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      let myObj = JSON.parse(this.responseText);
+      if (isVisible(tab1)) {
+
+        for (let i = 0; i < colectionNameplateNumber.length; i++) {
+          if (colectionNameplateNumber[i].checked == true) {
+            console.log(colectionNameplateNumber[i].getAttribute('data-number'));
+            checkedNumber = colectionNameplateNumber[i].getAttribute('data-number');
+          }
+        }
+
+        document.getElementById("size_main").textContent =
+          myObj.table[checkedNumber].size_small;
+      }
+
+      if (isVisible(tab2)) {
+        
+        for (let i = 0; i < colectionNameplateNumberBig.length; i++) {
+          if (colectionNameplateNumberBig[i].checked == true) {
+            console.log(colectionNameplateNumber[i].getAttribute('data-number'));
+            checkedNumber = colectionNameplateNumberBig[i].getAttribute('data-number');
+          }
+        }
+
+        document.getElementById("size_main").textContent =
+          myObj.table[checkedNumber].size_big;
+      }
+    }
+  };
+
+  xmlhttp.open("GET", "json_nameplate.json", true);
+  xmlhttp.send();
 }
+
 
 function streetChange() {
   document.getElementById("street").textContent = document.getElementById(
