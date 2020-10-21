@@ -2,34 +2,34 @@
 	"table":
 	[
 		{
-			"name":"table_1",
+			"name":"table_5",
 			"size_small":"620x200 MM",
-			"price_small":680,
+			"price_small":880,
 			"size_big":"1000x1000",
-			"price_big":1000,
-			"img_preview":"img/tabl01.png",
-			"img_model":"img/model_tabl/001.png",
-			"class": "v1"
+			"price_big":1200,
+			"img_preview":"img/tabl05.png",
+			"img_model":"img/model_tabl/005.png",
+			"number_color": "1",
+			"street_color":"0",
+			"street_name_color":"0",
+			"numberXY":[256, 165, 140, 100],
+			"streetXY":[256, 235, 32, 110],
+			"street_nameXY":[256, 295, 45, 210]
 		},
 		{
-			"name":"table_2",
-			"size_small":"620x200 MM",
-			"price_small":680,
-			"size_big":"1000x1000",
+			"name":"table_12",
+			"size_small":"620x204 MM",
+			"price_small":612,
+			"size_big":"1000x1002",
 			"price_big":1000,
-			"img_preview":"img/tabl02.png",
-			"img_model":"img/model_tabl/002.png",
-			"class": "v2"
-		},
-		{
-			"name":"table_3",
-			"size_small":"620x200 MM",
-			"price_small":680,
-			"size_big":"1000x1000",
-			"price_big":1000,
-			"img_preview":"img/tabl03.png",
-			"img_model":"img/model_tabl/003.png",
-			"class": "v3"
+			"img_preview":"img/tabl12.png",
+			"img_model":"img/model_tabl/012.png",
+			"number_color": "0",
+			"street_color":"1",
+			"street_name_color":"0",
+			"numberXY":[256, 270, 80, 50],
+			"streetXY":[256, 88, 34, 110],
+			"street_nameXY":[256, 163, 50, 310]
 		},
 		{
 			"name":"table_4",
@@ -38,88 +38,13 @@
 			"size_big":"1000x1000",
 			"price_big":1000,
 			"img_preview":"img/tabl04.png",
-			"img_model":"img/model_tabl/004.png",
-			"class": "v4"
-		},
-		{
-			"name":"table_5",
-			"size_small":"620x200 MM",
-			"price_small":680,
-			"size_big":"1000x1000",
-			"price_big":1000,
-			"img_preview":"img/tabl05.png",
-			"img_model":"img/model_tabl/005.png",
-			"class": "v5"
-		},
-		{
-			"name":"table_6",
-			"size_small":"620x200 MM",
-			"price_small":680,
-			"size_big":"1000x1000",
-			"price_big":1000,
-			"img_preview":"img/tabl06.png",
-			"img_model":"img/model_tabl/006.png",
-			"class": "v6"
-		},
-		{
-			"name":"table_7",
-			"size_small":"620x200 MM",
-			"price_small":680,
-			"size_big":"1000x1000",
-			"price_big":1000,
-			"img_preview":"img/tabl07.png",
-			"img_model":"img/model_tabl/007.png",
-			"class": "v7"
-		},
-		{
-			"name":"table_8",
-			"size_small":"620x200 MM",
-			"price_small":680,
-			"size_big":"1000x1000",
-			"price_big":1000,
-			"img_preview":"img/tabl08.png",
-			"img_model":"img/model_tabl/008.png",
-			"class": "v8"
-		},
-		{
-			"name":"table_9",
-			"size_small":"620x200 MM",
-			"price_small":680,
-			"size_big":"1000x1000",
-			"price_big":1000,
-			"img_preview":"img/tabl09.png",
-			"img_model":"img/model_tabl/009.png",
-			"class": "v9"
-		},
-		{
-			"name":"table_10",
-			"size_small":"620x200 MM",
-			"price_small":680,
-			"size_big":"1000x1000",
-			"price_big":1000,
-			"img_preview":"img/tabl10.png",
-			"img_model":"img/model_tabl/0010.png",
-			"class": "v10"
-		},
-		{
-			"name":"table_11",
-			"size_small":"620x220 MM",
-			"price_small":680,
-			"size_big":"1000x1001",
-			"price_big":1000,
-			"img_preview":"img/tabl11.png",
-			"img_model":"img/model_tabl/011.png",
-			"class": "v11"
-		},
-		{
-			"name":"table_12",
-			"size_small":"620x204 MM",
-			"price_small":680,
-			"size_big":"1000x1002",
-			"price_big":1000,
-			"img_preview":"img/tabl12.png",
-			"img_model":"img/model_tabl/012.png",
-			"class": "v12"
+			"img_model":"img/model_tabl/003.png",
+			"number_color": "1",
+			"street_color":"0",
+			"street_name_color":"0",
+			"numberXY":[436, 220, 115, 85],
+			"streetXY":[295, 155, 30, 110],
+			"street_nameXY":[200, 210, 40, 310]
 		}
 	],
 	"colors":

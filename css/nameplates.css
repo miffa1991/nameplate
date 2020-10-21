@@ -1,0 +1,66 @@
+@font-face {
+    font-family: CondensedBold; /* Имя шрифта */
+    src: url(../fonts/Condensed-Bold.ttf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+    font-family: CondensedMedium; /* Имя шрифта */
+    src: url(../fonts/Condensed-Medium.ttf); /* Путь к файлу со шрифтом */
+}
+.text-capitalize {
+    text-transform: capitalize!important;
+}
+svg:not(:root) {
+    overflow: hidden;
+}
+#big_img_container{
+    position: relative;
+    padding-bottom: 66%;
+    vertical-align: middle;
+    margin: 0;
+    overflow: hidden;
+    width: 100%;
+}
+#big_img_container svg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+}
+#OutputStreet, #OutputStreetName, #OutputNumber{
+    font-family: CondensedBold;
+}
+#OutputStreet{
+    font-family: CondensedMedium;
+}
+
+
+
+
+/* .v4 #streetBig{
+    top: 28%;
+    left: 55%;
+    font-size: 24px;
+}
+
+
+.v5 #streetBig{
+    
+    top: 54%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+}
+
+.v5 #streetNameBig{
+    top: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 40px;
+}
+
+.v5 #streetNumberBig{
+    top: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 102px;
+} */

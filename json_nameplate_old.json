@@ -1,0 +1,165 @@
+﻿{
+	"table":
+	[
+		{
+			"name":"table_5",
+			"size_small":"620x200 MM",
+			"price_small":880,
+			"size_big":"1000x1000",
+			"price_big":1200,
+			"img_preview":"img/tabl05.png",
+			"img_model":"img/model_tabl/005.png",
+			"number_color": "1",
+			"street_color":"0",
+			"street_name_color":"0",
+			"numberXY":[256, 165, 140, 100],
+			"streetXY":[256, 235, 32, 110],
+			"street_nameXY":[256, 295, 45, 210],
+			"class": "v5"
+		},
+		{
+			"name":"table_12",
+			"size_small":"620x204 MM",
+			"price_small":612,
+			"size_big":"1000x1002",
+			"price_big":1000,
+			"img_preview":"img/tabl12.png",
+			"img_model":"img/model_tabl/012.png",
+			"number_color": "0",
+			"street_color":"0",
+			"street_name_color":"0",
+			"numberXY":[290, 270, 80],
+			"streetXY":[180, 270, 80],
+			"street_nameXY":[180, 270, 80],
+			"class": "v12"
+		},
+		{
+			"name":"table_4",
+			"size_small":"620x200 MM",
+			"price_small":680,
+			"size_big":"1000x1000",
+			"price_big":1000,
+			"img_preview":"img/tabl04.png",
+			"img_model":"img/model_tabl/003.png",
+			"number_color": "1",
+			"class": "v4"
+		},
+		{
+			"name":"table_1",
+			"size_small":"620x200 MM",
+			"price_small":680,
+			"size_big":"1000x1000",
+			"price_big":1000,
+			"img_preview":"img/tabl01.png",
+			"img_model":"img/model_tabl/001.png",
+			"number_color": "0",
+			"class": "v1"
+		},
+		{
+			"name":"table_2",
+			"size_small":"620x200 MM",
+			"price_small":680,
+			"size_big":"1000x1000",
+			"price_big":1000,
+			"img_preview":"img/tabl02.png",
+			"img_model":"img/model_tabl/002.png",
+			"number_color": "0",
+			"class": "v2"
+		},
+		{
+			"name":"table_3",
+			"size_small":"620x200 MM",
+			"price_small":680,
+			"size_big":"1000x1000",
+			"price_big":1000,
+			"img_preview":"img/tabl03.png",
+			"img_model":"img/model_tabl/003.png",
+			"number_color": "0",
+			"class": "v3"
+		},
+
+		{
+			"name":"table_6",
+			"size_small":"620x200 MM",
+			"price_small":680,
+			"size_big":"1000x1000",
+			"price_big":1000,
+			"img_preview":"img/tabl06.png",
+			"img_model":"img/model_tabl/006.png",
+			"number_color": "0",
+			"class": "v6"
+		},
+		{
+			"name":"table_7",
+			"size_small":"620x200 MM",
+			"price_small":680,
+			"size_big":"1000x1000",
+			"price_big":1000,
+			"img_preview":"img/tabl07.png",
+			"img_model":"img/model_tabl/007.png",
+			"number_color": "0",
+			"class": "v7"
+		},
+		{
+			"name":"table_8",
+			"size_small":"620x200 MM",
+			"price_small":680,
+			"size_big":"1000x1000",
+			"price_big":1000,
+			"img_preview":"img/tabl08.png",
+			"img_model":"img/model_tabl/008.png",
+			"number_color": "0",
+			"class": "v8"
+		},
+		{
+			"name":"table_9",
+			"size_small":"620x200 MM",
+			"price_small":680,
+			"size_big":"1000x1000",
+			"price_big":1000,
+			"img_preview":"img/tabl09.png",
+			"img_model":"img/model_tabl/009.png",
+			"number_color": "0",
+			"class": "v9"
+		},
+		{
+			"name":"table_10",
+			"size_small":"620x200 MM",
+			"price_small":610,
+			"size_big":"1000x1000",
+			"price_big":1000,
+			"img_preview":"img/tabl10.png",
+			"img_model":"img/model_tabl/010.png",
+			"number_color": "0",
+			"class": "v10"
+		},
+		{
+			"name":"table_11",
+			"size_small":"620x220 MM",
+			"price_small":611,
+			"size_big":"1000x1001",
+			"price_big":1000,
+			"img_preview":"img/tabl11.png",
+			"img_model":"img/model_tabl/011.png",
+			"number_color": "0",
+			"class": "v11"
+		}
+	],
+	"colors":
+	[
+		{"color": ["#007cb0","Голубой"]},
+		{"color": ["#051867","Синий"]},
+		{"color": ["#800000","Красный 1"]},
+		{"color": ["#de0000","Красный 2"]},
+		{"color": ["#00380f","Темно зеленный"]},
+		{"color": ["#4f1c00","Коричневый"]},
+		{"color": ["#c5c6c6","Серый"]},
+		{"color": ["#d7b56d","Желтый"]},
+		{"color": ["#000000","Черный"]},
+		{"color": ["#007828","Зеленый"]},
+		{"color": ["#e75d1c","Оранжевый"]},
+		{"color": ["#f3d800","Светло желтый"]}
+	]
+
+}
+

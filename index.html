@@ -32,9 +32,10 @@
 		<!--header-->
 		<div id="header">
 			<div class="in">
-    <div class="h_info1"><strong>Адресная табличка</strong>
-    для вашего дома</div>
-    <div class="h_phone"><a href="tel:+380504947060" class="hvr-buzz-out">050 494 70 60</a></div>
+    <div class="h_info1"><strong>Адресная табличка</strong> для вашего дома</div>
+    <div class="h_phone">
+      <a href="tel:+380504947060" class="hvr-buzz-out">050 494 70 60</a>
+    </div>
     <div class="h_phone_ico"><i class="icon-phone-2"></i></div>
 
     <div class="h_info2">
@@ -45,38 +46,37 @@
       </div>
       <div class="hi2_item">
       <a href="#" class="btn v2">Задать вопрос</a>
-     </div>
+    </div>
     </div>
 
 			<div class="fog"></div>
 <!-- /burger button and mobile menu -->
 
 <ul class="h_menu">
- <li><a href="#link1" class="scrollto">О нас</a></li>
- <li><a href="#link2" class="scrollto">Конструктор табличек</a></li>
- <li><a href="#link3" class="scrollto">Наши работы</a></li>
- <li class="active"><a href="#link4" class="active">Доставка и оплата</a></li>
- <li><a href="#link5">Контакты</a></li>
+  <li><a href="#link1" class="scrollto">О нас</a></li>
+  <li><a href="#link2" class="scrollto">Конструктор табличек</a></li>
+  <li><a href="#link3" class="scrollto">Наши работы</a></li>
+  <li class="active"><a href="#link4" class="active">Доставка и оплата</a></li>
+  <li><a href="#link5">Контакты</a></li>
 </ul>
 
 			</div>
   </div><!--/header-->
   <!-- <div class="headermob-active"></div> -->
   <div class="headermob">
-   <div class="in">
+    <div class="in">
     <div class="header__logo">
-     <div class="header__logo-img">
+      <div class="header__logo-img">
       <img src="img/logo.png" alt="logo">
-     </div>
     </div>
-
+    </div>
     <div class="header__right">
-     <div class="header__right-info info">
+    <div class="header__right-info info">
       <div class="info__number">
-       <a href="tel:+380504947060">+38 050 494 70 60</a>
-       <a href="tel:+380552410405">+38 0552 41 04 05</a>
+        <a href="tel:+380504947060">+38 050 494 70 60</a>
+        <a href="tel:+380552410405">+38 0552 41 04 05</a>
       </div>
-     </div>
+    </div>
 
      <div class="header__right-nav nav">
       <ul>
@@ -183,8 +183,8 @@
    <div class="tabs_wr">
     <div class="tabs">
      <ul>
-      <li onclick="changeSize()"><a href="#tab_a1">Обычный размер</a></li>
-      <li onclick="changeSize()"><a href="#tab_a2">Увеличенный размер</a></li>
+      <li onclick="changeSizePrice()"><a href="#tab_a1">Обычный размер</a></li>
+      <li onclick="changeSizePrice()"><a href="#tab_a2">Увеличенный размер</a></li>
      </ul>
     </div>
     <div class="tab_content">
@@ -266,12 +266,27 @@
   <!-- floating div -->
   <div class="b_info7">
    <div class="thumb">
+    <figure id="big_img_container">
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 343" preserveAspectRatio="xMinYMin meet">
+          <image id="big_img" xlink:href="img/model_tabl/005.png" width="512px" height="343px" id="image-source"></image>
+          <g style="color: white;">
+              <text id="OutputNumber" class="white-table" text-anchor="middle" lengthAdjust="spacingAndGlyphs">15</text>
+          </g>
+          <g>
+              <text id="OutputStreetName" class="white-table text-capitalize" text-anchor="middle" lengthAdjust="spacingAndGlyphs">Нафтовиків</text>
+          </g>
+          <g>
+              <text id="OutputStreet" class="white-table text-lowercase" text-anchor="middle" lengthAdjust="spacingAndGlyphs">вулиця</text>
+          </g>
+      </svg>
+  </figure>
+<!-- 
      <div id="big_img_container">
      <img id="big_img" src="img/tabl02b.png" alt="адресная табличка">
      <div id="streetBig" class="street">вулиця</div>
      <div id="streetNameBig" class="streetName">Нафтовиків</div>
-     <div id="streetNumberBig" class="streetNumber">15</div>
-    </div>
+     <text id="streetNumberBig" class="streetNumber" text-anchor="middle" textLength="100" lengthAdjust="spacingAndGlyphs">15</text>
+    </div> -->
     </div>
    <div class="tbl_overflow">
     <table class="tbl_hide">

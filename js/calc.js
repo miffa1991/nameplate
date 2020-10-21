@@ -8,7 +8,7 @@ let colorInput = document.getElementsByClassName("color_input"); //color collect
 let colectionNameplateNumber = document.getElementsByClassName("ch_c"); //nameplate number collection
 let colectionNameplateNumberBig = document.getElementsByClassName("ch_c_big"); //nameplate number collection
 
-
+let pricePlate = 0;
 let tab1 = document.getElementById("tab_a1"); //tab1
 let tab2 = document.getElementById("tab_a2"); //tab2
 
@@ -23,7 +23,7 @@ xmlhttp.onreadystatechange = function () {
 
       if (i == 0) {
         //задаем адрес макета первой таблички
-        document.getElementById("big_img").src = myObj.table[i].img_model;
+        document.getElementById("big_img").setAttribute('href', myObj.table[i].img_model);
       }
 
       let preview_wrap = document.createElement("div");
@@ -37,7 +37,7 @@ xmlhttp.onreadystatechange = function () {
       preview_wrap.classList.add("bi6_item");
       preview_wrap.appendChild(label);
       label.setAttribute("for", `ch_c${i}`);
-      label.innerHTML = `<input type='radio' onclick='changeSize()' data-number='${i}' class='ch_c' name='ch_c' ${
+      label.innerHTML = `<input type='radio' onclick='changeSizePrice()' data-number='${i}' class='ch_c' name='ch_c' ${
         i == 0 ? "checked" : ""
       } id='ch_c${i}'>`;
       label.appendChild(sw_a_in);
@@ -51,11 +51,11 @@ xmlhttp.onreadystatechange = function () {
       label.classList.add("switch_a");
       img.src = myObj.table[i].img_preview;
       sw_a_title.textContent = myObj.table[i].size_small;
-      label.onclick = changeModelPlate;
+      label.onclick = function() {
+        changeModelPlate();
+        changeColorPlate();
+      };
 
-      if (inputModel[i].checked == true) {
-        document.getElementById("big_img").src = myObj.table[i].img_model;
-      }
 
       //переменные для большых табличек
       let preview_wrap_big = document.createElement("div");
@@ -70,7 +70,7 @@ xmlhttp.onreadystatechange = function () {
       preview_wrap_big.classList.add("bi6_item");
       preview_wrap_big.appendChild(label_big);
       label_big.setAttribute("for", `ch_d${i}`);
-      label_big.innerHTML = `<input type='radio' onclick='changeSize()' data-number='${i}' class='ch_c_big' name='ch_c_big' ${
+      label_big.innerHTML = `<input type='radio' onclick='changeSizePrice()' data-number='${i}' class='ch_c_big' name='ch_c_big' ${
         i == 0 ? "checked" : ""
       } id='ch_d${i}'>`;
       label_big.appendChild(sw_a_in_big);
@@ -83,33 +83,66 @@ xmlhttp.onreadystatechange = function () {
       sw_a_in_big.classList.add("sw_a_in");
       sw_a_title_big.classList.add("sw_a_title");
       label_big.classList.add("switch_a");
-      label_big.onclick = changeModelPlateBig;
+      label_big.onclick = function() {
+        changeModelPlateBig();
+        changeColorPlate();
+      };
 
       img_big.src = myObj.table[i].img_preview;
       sw_a_title_big.textContent = myObj.table[i].size_big;
 
-      if (inputModelBig[i].checked == true) {
-        document.getElementById("big_img").src = myObj.table[i].img_model;
-        document.getElementById("big_img_container").className =
-          myObj.table[i].class; // add class main img
-      }
+      changeModelPlate();
+      // changeModelPlateBig();
     }
 
     function changeModelPlate() {
       //model small img
       for (let i = 0; i < inputModel.length; i++) {
         if (inputModel[i].checked == true) {
-          document.getElementById("big_img").src = myObj.table[i].img_model;
+          document.getElementById("big_img").setAttribute( 'href', myObj.table[i].img_model);
           document.getElementById("big_img_container").className =
             myObj.table[i].class; // add class main img
+            //number characters
+            document.getElementById("OutputNumber") .setAttribute( 'x', myObj.table[i].numberXY[0]);
+            document.getElementById("OutputNumber") .setAttribute( 'y', myObj.table[i].numberXY[1]);
+            document.getElementById("OutputNumber") .setAttribute( 'font-size', myObj.table[i].numberXY[2]);
+            document.getElementById("OutputNumber") .setAttribute( 'textLength', myObj.table[i].numberXY[3]);
+            //street characters
+            document.getElementById("OutputStreet") .setAttribute( 'x', myObj.table[i].streetXY[0]);
+            document.getElementById("OutputStreet") .setAttribute( 'y', myObj.table[i].streetXY[1]);
+            document.getElementById("OutputStreet") .setAttribute( 'font-size', myObj.table[i].streetXY[2]);
+            document.getElementById("OutputStreet") .setAttribute( 'textLength', myObj.table[i].streetXY[3]);
+            //streetName characters
+            document.getElementById("OutputStreetName") .setAttribute( 'x', myObj.table[i].street_nameXY[0]);
+            document.getElementById("OutputStreetName") .setAttribute( 'y', myObj.table[i].street_nameXY[1]);
+            document.getElementById("OutputStreetName") .setAttribute( 'font-size', myObj.table[i].street_nameXY[2]);
+            document.getElementById("OutputStreetName") .setAttribute( 'textLength', myObj.table[i].street_nameXY[3]);
         }
       }
+      
     }
     function changeModelPlateBig() {
       // model big img
       for (let i = 0; i < inputModelBig.length; i++) {
         if (inputModelBig[i].checked == true) {
-          document.getElementById("big_img").src = myObj.table[i].img_model;
+          document.getElementById("big_img").setAttribute( 'href', myObj.table[i].img_model);
+          document.getElementById("big_img_container").className =
+            myObj.table[i].class; // add class main img
+            //number characters
+            document.getElementById("OutputNumber") .setAttribute( 'x', myObj.table[i].numberXY[0]);
+            document.getElementById("OutputNumber") .setAttribute( 'y', myObj.table[i].numberXY[1]);
+            document.getElementById("OutputNumber") .setAttribute( 'font-size', myObj.table[i].numberXY[2]);
+            document.getElementById("OutputNumber") .setAttribute( 'textLength', myObj.table[i].numberXY[3]);
+            //street characters
+            document.getElementById("OutputStreet") .setAttribute( 'x', myObj.table[i].streetXY[0]);
+            document.getElementById("OutputStreet") .setAttribute( 'y', myObj.table[i].streetXY[1]);
+            document.getElementById("OutputStreet") .setAttribute( 'font-size', myObj.table[i].streetXY[2]);
+            document.getElementById("OutputStreet") .setAttribute( 'textLength', myObj.table[i].streetXY[3]);
+            //streetName characters
+            document.getElementById("OutputStreetName") .setAttribute( 'x', myObj.table[i].street_nameXY[0]);
+            document.getElementById("OutputStreetName") .setAttribute( 'y', myObj.table[i].street_nameXY[1]);
+            document.getElementById("OutputStreetName") .setAttribute( 'font-size', myObj.table[i].street_nameXY[2]);
+            document.getElementById("OutputStreetName") .setAttribute( 'textLength', myObj.table[i].street_nameXY[3]);
         }
       }
     }
@@ -128,18 +161,71 @@ xmlhttp.onreadystatechange = function () {
       label_color.classList.add("custom_radio");
       label_color.onclick = changeColorPlate;
       colorsBox.appendChild(label_color);
-      if (colorInput[i].checked == true) {
-        document.getElementById("big_img").style.backgroundColor =
-          myObj.colors[i].color[0];
-      }
+
+      changeColorPlate();
     }
 
     function changeColorPlate() {
       // background color main img
       for (let i = 0; i < colorInput.length; i++) {
         if (colorInput[i].checked == true) {
-          document.getElementById("big_img").style.backgroundColor =
+          document.getElementById("big_img_container").style.backgroundColor =
             myObj.colors[i].color[0];
+          for (let l = 0; l < Object.keys(myObj.table).length; l++) {
+            if (isVisible(tab1)) {
+              if (inputModel[l].checked == true) {
+                if(myObj.table[l].number_color == 1){
+                  document.getElementById("OutputNumber").setAttribute('fill', myObj.colors[i].color[0]);
+                }
+                if(myObj.table[l].number_color == 0) {
+                  document.getElementById("OutputNumber").setAttribute('fill', '#fff');
+                }
+
+                if(myObj.table[l].street_name_color == 1){
+                  document.getElementById("OutputStreetName").setAttribute('fill', myObj.colors[i].color[0]);
+                }  
+                if(myObj.table[l].street_name_color == 0) {
+                  document.getElementById("OutputStreetName").setAttribute('fill', '#fff');
+                }
+
+                if(myObj.table[l].street_color == 1){
+                  document.getElementById("OutputStreet").setAttribute('fill', myObj.colors[i].color[0]);
+                }  
+                if(myObj.table[l].street_color == 0) {
+                  document.getElementById("OutputStreet").setAttribute('fill', '#fff');
+                }
+                
+                
+              }
+            }
+            if (isVisible(tab2)) {
+              if (inputModelBig[l].checked == true) {
+                if(myObj.table[l].number_color == 1){
+                  document.getElementById("OutputNumber").setAttribute('fill', myObj.colors[i].color[0]);
+                }
+                if(myObj.table[l].number_color == 0) {
+                  document.getElementById("OutputNumber").setAttribute('fill', '#fff');
+                }
+
+                if(myObj.table[l].street_name_color == 1){
+                  document.getElementById("OutputStreetName").setAttribute('fill', myObj.colors[i].color[0]);
+                }  
+                if(myObj.table[l].street_name_color == 0) {
+                  document.getElementById("OutputStreetName").setAttribute('fill', '#fff');
+                }
+
+                if(myObj.table[l].street_color == 1){
+                  document.getElementById("OutputStreet").setAttribute('fill', myObj.colors[i].color[0]);
+                }  
+                if(myObj.table[l].street_color == 0) {
+                  document.getElementById("OutputStreet").setAttribute('fill', '#fff');
+                }
+                
+                
+              }
+            }
+          }
+            
         }
       }
     }
@@ -150,7 +236,7 @@ xmlhttp.send();
 
 
 
-function changeSize() { //click tabs and nameplates 
+function changeSizePrice() { //click tabs and nameplates 
 
   let checkedNumber = 0;
 
@@ -193,21 +279,31 @@ function streetChange() {
   document.getElementById("street").textContent = document.getElementById(
     "id1"
   ).value;
+  document.getElementById("OutputStreet").textContent = document.getElementById(
+    "id1"
+  ).value;
 }
 
 function streetNameChange() {
   document.getElementById("streetName").textContent = document.getElementById(
     "id2"
   ).value;
+  document.getElementById("OutputStreetName").textContent = document.getElementById(
+    "id2"
+  ).value;
+  
 }
 
 function streetNumberChange() {
   document.getElementById("streetNumber").textContent = document.getElementById(
     "id3"
   ).value;
+  document.getElementById("OutputNumber").textContent = document.getElementById(
+    "id3"
+  ).value;
 }
 
-function drillingHolesPrice() {
+function drillingHolesPrice() { // отверстия
   if(document.getElementById("id19").checked == true ){
     document.getElementById("drillingHoles").style.display = "table-row";
     
