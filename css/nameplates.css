@@ -33,34 +33,3 @@ svg:not(:root) {
     font-family: CondensedMedium;
 }
 
-
-
-
-/* .v4 #streetBig{
-    top: 28%;
-    left: 55%;
-    font-size: 24px;
-}
-
-
-.v5 #streetBig{
-    
-    top: 54%;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 24px;
-}
-
-.v5 #streetNameBig{
-    top: 70%;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 40px;
-}
-
-.v5 #streetNumberBig{
-    top: 2%;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 102px;
-} */

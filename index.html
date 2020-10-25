@@ -183,8 +183,8 @@
    <div class="tabs_wr">
     <div class="tabs">
      <ul>
-      <li onclick="changeSizePrice()"><a href="#tab_a1">Обычный размер</a></li>
-      <li onclick="changeSizePrice()"><a href="#tab_a2">Увеличенный размер</a></li>
+      <li id="tab1Button"><a href="#tab_a1">Обычный размер</a></li>
+      <li id="tab2Button"><a href="#tab_a2">Увеличенный размер</a></li>
      </ul>
     </div>
     <div class="tab_content">
@@ -240,12 +240,9 @@
     </div>
    </div>
 
-   <div class="bi5_body v4">
-    <label for="16"><input type="radio" name="ch_b" name="" id="16" checked>Пластик ПВХ (3мм)</label>
-    <label for="17"><input type="radio" name="ch_b" name="" id="17">Пластик ПВХ (5мм)</label>
-    <br>
-    <label for="18"><input type="radio" name="ch_b" name="" id="18">Композит (3мм) - НАДЁЖНЕЕ</label>
-   </div>
+  <div id="materialContainer" class="bi5_body v4">
+    
+    </div>
   </div>
 
   <div class="b_info5 v5">
@@ -257,9 +254,7 @@
     </div>
    </div>
 
-   <div class="bi5_body">
-    <label for="id19" onclick="drillingHolesPrice()"><input type="checkbox"  name="drillingHolesPrice" id="id19" checked>Сверление отверстий (+50 грн)</label>
-   </div>
+   <div id="dopFunctional" class="bi5_body"></div>
   </div>
  </div>
  <div class="col2 v2">
@@ -303,21 +298,21 @@
      <tr>
       <td>03.</td>
       <td>Цвет</td>
-      <td>Голубой (светоотражающий)</td>
+      <td id="colorNameSend">Голубой (светоотражающий)</td>
      </tr>
      <tr>
       <td>04.</td>
       <td>Материал</td>
-      <td>Пластик ПВХ (4мм)</td>
+      <td id='materialSend'>Пластик ПВХ (4мм)</td>
      </tr>
-     <tr id="drillingHoles">
+     <tr id="drillingHoles" style="display: none;">
       <td>05.</td>
       <td>Дополнительно</td>
       <td>Сверление отверстий</td>
      </tr>
     </table>
     <div class="bi7_wr1">
-     <div class="bi7i2"><span id="">680</span> грн</div>
+     <div class="bi7i2"><span id="totalPrice">680</span> грн</div>
      <div class="bi7i2"><a data-fancybox href="#test-popup" class="btn v2_1">Заказать табличку</a>
     </div>
     </div>
@@ -572,7 +567,8 @@
 	</div><!--/wrapper-->
 	<script src="js/jquery.fancybox.min.js"></script>
  <script src="js/slick.js"></script>
-<script src="js/main.js"></script>
+
 <script src="js/calc.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
