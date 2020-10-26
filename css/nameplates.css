@@ -33,3 +33,7 @@ svg:not(:root) {
     font-family: CondensedMedium;
 }
 
+.b_info7 .tbl_hide tr td:nth-child(3){
+    max-width: 280px;
+    display: inline-block;
+}

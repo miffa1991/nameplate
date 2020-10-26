@@ -210,12 +210,21 @@
    </div>
 
    <div class="bi5_body v2">
-    <div class="f_row"><input type="text" name="" id="id1" onkeyup="streetChange()" onkeypress="streetChange()" onchange="streetChange()" placeholder="вулиця"><label class="label1" for="id1">Или
-      проспект/майдан/площадь</label></div>
-    <div class="f_row"><input type="text" name="" id="id2" onkeyup="streetNameChange()" onchange="streetNameChange()"
-       placeholder="Нафтовиків"><label class="label1" for="id2">Название нужной улицы</label></div>
-    <div class="f_row"><input type="text" name="" id="id3" onkeyup="streetNumberChange()" onchange="streetNumberChange()" placeholder="15"><label class="label1" for="id3">Номер
-      дома</label></div>
+    <div class="f_row">
+      <input type="text" name="" id="id1" onkeyup="streetChange()" onkeypress="streetChange()" onchange="streetChange()" placeholder="вулиця">
+      <label class="label1" for="id1">Или
+      проспект/майдан/площадь</label>
+    </div>
+    <div class="f_row">
+      <input type="text" name="" id="id2" onkeyup="streetNameChange()" onchange="streetNameChange()"
+       placeholder="Нафтовиків">
+       <label class="label1" for="id2">Название нужной улицы</label>
+      </div>
+    <div class="f_row">
+      <input type="text" name="" id="id3" onkeyup="streetNumberChange()" onchange="streetNumberChange()" placeholder="15">
+      <label class="label1" for="id3">Номер
+      дома</label>
+    </div>
    </div>
   </div>
 
@@ -308,7 +317,7 @@
      <tr id="drillingHoles" style="display: none;">
       <td>05.</td>
       <td>Дополнительно</td>
-      <td>Сверление отверстий</td>
+      <td id="leftDopCont"></td>
      </tr>
     </table>
     <div class="bi7_wr1">
@@ -515,32 +524,35 @@
    <div class="c_wr_popup">
     <div class="f_titile">Подтверждение заказа</div>
     <p>Оставьте ваши контактные данные и наши специалисты свяжутся с вами</p>
-    <div class="thumb"><img src="img/tabl02.png" alt=""></div>
+    <div class="thumb"><img id="popImg" src="img/tabl02.png" alt=""></div>
 
     <div class="b_info_popup1">
      <div class="bip1_i">
       <div class="title">01. <strong>Размер</strong></div>
-      <div class="info1">620x200 мм</div>
+      <div id="sizePopUp" class="info1">620x200 мм</div>
      </div>
      <div class="bip1_i">
       <div class="title">02. <strong>Надпись</strong></div>
-      <div class="info1">вулиця Нафтовиків, 15</div>
+      <div class="info1"><span id='streetPopUp'>вулиця</span> 
+        <span id="streetNamePopUp"> Нафтовиків</span>, 
+        <span id="streetNumberPopup"> 15</span>
+      </div>
      </div>
      <div class="bip1_i">
       <div class="title">03. <strong>Цвет</strong></div>
-      <div class="info1">Голубой (светоотражающий)</div>
+      <div id="colorPopUp" class="info1">Голубой (светоотражающий)</div>
      </div>
      <div class="bip1_i">
       <div class="title">04. <strong>Материал</strong></div>
       <div class="info1">Пластик ПВХ (4мм)</div>
      </div>
-     <div class="bip1_i">
+     <div id="drillingHolesPopup" class="bip1_i">
       <div class="title">05. <strong>Дополнительно</strong></div>
-      <div class="info1">Сверление отверстий</div>
+      <div id="dopFuncPopUp" class="info1">Сверление отверстий</div>
      </div>
     </div>
 
-    <div class="price1"><span>680</span> грн</div>
+    <div class="price1"><span id="pricePopUp">680</span> грн</div>
 
     <div class="form2">
      <form action="">

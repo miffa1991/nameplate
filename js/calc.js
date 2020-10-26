@@ -4,6 +4,7 @@ let inputModel = document.getElementsByClassName("ch_c"); //model colection
 let inputModelBig = document.getElementsByClassName("ch_c_big"); //model colection
 let colorsBox = document.getElementById("colors_nameplate"); //colors container
 let colorInput = document.getElementsByClassName("color_input"); //color collection
+let materialInput = document.getElementsByClassName("material_input"); //color collection
 let materialBox =  document.getElementById("materialContainer");
 let colectionNameplateNumber = document.getElementsByClassName("ch_c"); //nameplate number collection
 let colectionNameplateNumberBig = document.getElementsByClassName("ch_c_big"); //nameplate number collection
@@ -95,6 +96,53 @@ xmlhttp.onreadystatechange = function () {
         // changeModelPlateBig();
       }
 
+      for (let i = 0; i < Object.keys(myObj.colors).length; i++) { // выводим контейнер цветов
+        // write colors with json
+        let label_color = document.createElement("label");
+        let div_color = document.createElement("div");
+        label_color.setAttribute("for", `idc${i}`);
+        label_color.innerHTML = `<input type='radio' class='color_input' name='ch_a' ${
+          i == 1 ? "checked" : ""
+        } id='idc${i}'>`;
+        div_color.style.backgroundColor = myObj.colors[i].color[0];
+        label_color.appendChild(div_color);
+        label_color.classList.add("custom_radio");
+        label_color.onclick = changeColorPlate;
+        colorsBox.appendChild(label_color);
+        changeColorPlate();
+      }
+
+
+
+      for (let i = 0; i < Object.keys(myObj.materials).length; i++) { // выводим контейнер матереалов
+        // write colors with json
+        let br = document.createElement("br");
+        let label_material = document.createElement("label");
+        label_material.setAttribute("for", `idm${i}`);
+        label_material.innerHTML = `<input type='radio' class='material_input' name='ch_b' value='${myObj.materials[i].material[0]}' ${
+          i == 0 ? "checked" : ""
+        } id='idm${i}'>${myObj.materials[i].material[0]}`;
+  
+        label_material.onclick = function(){
+          changeModelPlate();
+          changeModelPlateBig();
+        }
+  
+  
+        materialBox.appendChild(label_material);
+        if(i == 1){
+          materialBox.appendChild(br);
+        }
+        label_material.onclick = function(){
+          checkMaterial();
+          changeModelPlate();
+          changeModelPlateBig();
+        }
+        
+      }
+
+      
+
 
 
       for (let i = 0; i < Object.keys(myObj.dopFunctionalPrice).length; i++) { //container dop functional
@@ -116,60 +164,79 @@ xmlhttp.onreadystatechange = function () {
     plateRender();
 
 
-    function priceTotal(i, arrPriceDop){
-     
+    function priceTotal(i, arrPriceDop, materialPrice){
       
-  
-
-
-      
-
-
       if (isVisible(tab1)) {
         price = myObj.table[i].price_small;
       }
+      
       if (isVisible(tab2)) {
         price = myObj.table[i].price_big;
       }
-      console.log(price);
-      document.getElementById("totalPrice").textContent = price;  
-
-        
- 
-      $('.func_input').each(function () {
-        if ($(this).prop('checked')) {
       
-        for (let i = 0; i < arrPriceDop.length; i++) {
-          price =  price + myObj.dopFunctionalPrice[arrPriceDop[i]].functional[1];
+      price+=materialPrice;
+      
+      document.getElementById("totalPrice").textContent = price;  
+    
+      let dopFuncConten = '';
+      let separator = '';
+      if(arrPriceDop.length > 1){
+        separator = ', ';
+      }
+        if(arrPriceDop.length > 0){
+          for (let i = 0; i < arrPriceDop.length; i++) {
+            price = price + myObj.dopFunctionalPrice[arrPriceDop[i]].functional[1];
+            document.getElementById("totalPrice").textContent = price;
+            dopFuncConten = dopFuncConten + myObj.dopFunctionalPrice[arrPriceDop[i]].functional[0]+separator;
+          }
+          document.getElementById("drillingHoles").style.display = "table-row";
+          document.getElementById("drillingHolesPopup").style.display = "block";
+          
+        } else {
+          
+          document.getElementById("drillingHoles").style.display = "none";
+          document.getElementById("drillingHolesPopup").style.display = "none";
+          
           document.getElementById("totalPrice").textContent = price;
         }
-        document.getElementById("drillingHoles").style.display = "table-row";
-      } else {
-        document.getElementById("drillingHoles").style.display = "none";
-        document.getElementById("totalPrice").textContent = price;
-      }
-    });
+        document.getElementById("leftDopCont").textContent = dopFuncConten;
+        document.getElementById("dopFuncPopUp").textContent = dopFuncConten;
+        
+        
+        document.getElementById("pricePopUp").textContent = price;
+      //   $('.func_input').each(function () {
+      //     if ($(this).prop('checked')) {
+      //     }
+      // });
     }
 
     function changeModelPlate() {
+
       if (isVisible(tab1)) {
         const myCount = function()  {
           let arrSumDop = new Array();
           $('.func_input:checked').each(function(index) {
             arrSumDop.push($(this).data('num'));
           });
-          // console.log( arrSumDop );
           return arrSumDop;
         };
 
-        let price = 0;
         let arrPriceDop = myCount();
 
+        let mat = 0;
+  
+        for (let i = 0; i < materialInput.length; i++) {
+          if (materialInput[i].checked == true) {
+            mat = myObj.materials[i].material[1];  
+          }
+        } 
 
         //model small img
         for (let i = 0; i < inputModel.length; i++) {
           if (inputModel[i].checked == true) {
             document.getElementById("big_img").setAttribute( 'href', myObj.table[i].img_model);
+            document.getElementById("popImg").setAttribute( 'src', myObj.table[i].img_preview);
+            
             document.getElementById("big_img_container").className =
             myObj.table[i].class; // add class main img
             //number characters
@@ -188,11 +255,8 @@ xmlhttp.onreadystatechange = function () {
             document.getElementById("OutputStreetName") .setAttribute( 'font-size', myObj.table[i].street_nameXY[2]);
             document.getElementById("OutputStreetName") .setAttribute( 'textLength', myObj.table[i].street_nameXY[3]);
         
-
-
-
         
-            priceTotal(i, arrPriceDop);
+            priceTotal(i, arrPriceDop, mat);
         
         
         
@@ -200,13 +264,15 @@ xmlhttp.onreadystatechange = function () {
         
         
             document.getElementById("size_main").textContent = myObj.table[i].size_small; // small size plate
+            
+            document.getElementById("sizePopUp").textContent = myObj.table[i].size_small;
           }
         }
       }
     }
     function changeModelPlateBig() {
       if (isVisible(tab2)) {
-        const myCount = function()  {
+        const myCount = function() {
           let arrSumDop = new Array();
           $('.func_input:checked').each(function(index) {
             arrSumDop.push($(this).data('num'));
@@ -214,17 +280,22 @@ xmlhttp.onreadystatechange = function () {
           // console.log( arrSumDop );
           return arrSumDop;
         };
-
-        let price = 0;
         let arrPriceDop = myCount();
 
+
+        let mat = 0;
+  
+        for (let i = 0; i < materialInput.length; i++) {
+          if (materialInput[i].checked == true) {
+            mat = myObj.materials[i].material[1];  
+          }
+        } 
 
         // model big img
         for (let i = 0; i < inputModelBig.length; i++) {
           if (inputModelBig[i].checked == true) {
             document.getElementById("big_img").setAttribute( 'href', myObj.table[i].img_model);
-            document.getElementById("big_img_container").className =
-              myObj.table[i].class; // add class main img
+            document.getElementById("popImg").setAttribute( 'src', myObj.table[i].img_preview);
               //number characters
               document.getElementById("OutputNumber") .setAttribute( 'x', myObj.table[i].numberXY[0]);
               document.getElementById("OutputNumber") .setAttribute( 'y', myObj.table[i].numberXY[1]);
@@ -241,34 +312,16 @@ xmlhttp.onreadystatechange = function () {
               document.getElementById("OutputStreetName") .setAttribute( 'font-size', myObj.table[i].street_nameXY[2]);
               document.getElementById("OutputStreetName") .setAttribute( 'textLength', myObj.table[i].street_nameXY[3]);
           
-
-
-              priceTotal(i, arrPriceDop);
-
-
+              priceTotal(i, arrPriceDop, mat);
           // textArea and Date send
           
               document.getElementById("size_main").textContent = myObj.table[i].size_big; //size big plate
-            
+              document.getElementById("sizePopUp").textContent = myObj.table[i].size_big;
           }
         }
       }
     }
-    for (let i = 0; i < Object.keys(myObj.colors).length; i++) { // выводим контейнер цветов
-      // write colors with json
-      let label_color = document.createElement("label");
-      let div_color = document.createElement("div");
-      label_color.setAttribute("for", `idc${i}`);
-      label_color.innerHTML = `<input type='radio' class='color_input' name='ch_a' ${
-        i == 1 ? "checked" : ""
-      } id='idc${i}'>`;
-      div_color.style.backgroundColor = myObj.colors[i].color[0];
-      label_color.appendChild(div_color);
-      label_color.classList.add("custom_radio");
-      label_color.onclick = changeColorPlate;
-      colorsBox.appendChild(label_color);
-      changeColorPlate();
-    }
+
 
     function changeColorPlate() {
       // background color main img
@@ -278,6 +331,9 @@ xmlhttp.onreadystatechange = function () {
             myObj.colors[i].color[0];
             
           document.getElementById("colorNameSend").textContent = myObj.colors[i].color[1];
+          
+          document.getElementById("colorPopUp").textContent = myObj.colors[i].color[1];
+          
           for (let l = 0; l < Object.keys(myObj.table).length; l++) {
             if (isVisible(tab1)) {
               if (inputModel[l].checked == true) {
@@ -336,24 +392,7 @@ xmlhttp.onreadystatechange = function () {
       changeColorPlate();
     };
 
-    for (let i = 0; i < Object.keys(myObj.materials).length; i++) { // выводим контейнер цветов
-      // write colors with json
-      let br = document.createElement("br");
-      let label_material = document.createElement("label");
-      label_material.setAttribute("for", `idm${i}`);
-      label_material.innerHTML = `<input type='radio' class='material_input' name='ch_b' value='${myObj.materials[i].material}' ${
-        i == 0 ? "checked" : ""
-      } id='idm${i}'>${myObj.materials[i].material}`;
-      
-      materialBox.appendChild(label_material);
-      if(i == 1){
-        materialBox.appendChild(br);
-      }
-      label_material.onclick = function(){
-        checkMaterial();
-      }
-      
-    }
+
     let radiosMaterial = document.getElementsByName('ch_b');
 
     function checkMaterial(){
@@ -369,10 +408,6 @@ xmlhttp.onreadystatechange = function () {
     checkMaterial();
 
 
-
-
-
-
   }
 };
 xmlhttp.open("GET", "json_nameplate.json", true);
@@ -386,6 +421,10 @@ function streetChange() {
   document.getElementById("OutputStreet").textContent = document.getElementById(
     "id1"
   ).value;
+  document.getElementById("streetPopUp").textContent = document.getElementById(
+    "id1"
+  ).value;
+  
 }
 
 function streetNameChange() {
@@ -393,6 +432,9 @@ function streetNameChange() {
     "id2"
   ).value;
   document.getElementById("OutputStreetName").textContent = document.getElementById(
+    "id2"
+  ).value;
+  document.getElementById("streetNamePopUp").textContent = document.getElementById(
     "id2"
   ).value;
   
@@ -403,6 +445,9 @@ function streetNumberChange() {
     "id3"
   ).value;
   document.getElementById("OutputNumber").textContent = document.getElementById(
+    "id3"
+  ).value;
+  document.getElementById("streetNumberPopup").textContent = document.getElementById(
     "id3"
   ).value;
 }

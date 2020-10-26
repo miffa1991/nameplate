@@ -36,7 +36,7 @@
 			"size_small":"620x200 MM",
 			"price_small":680,
 			"size_big":"1000x1000",
-			"price_big":1000,
+			"price_big":1100,
 			"img_preview":"img/tabl04.png",
 			"img_model":"img/model_tabl/003.png",
 			"number_color": "1",
@@ -49,7 +49,7 @@
 	],
 	"colors":
 	[
-		{"color": ["#007cb0","Голубой"]},
+		{"color": ["#007cb0","Голубой (светоотражающий)"]},
 		{"color": ["#051867","Синий"]},
 		{"color": ["#800000","Красный 1"]},
 		{"color": ["#de0000","Красный 2"]},
@@ -64,9 +64,9 @@
 	],
 	"materials":
 	[
-		{"material":"Пластик ПВХ (3мм)"},
-		{"material":"Пластик ПВХ (5мм)"},
-		{"material":"Композит (3мм) - НАДЁЖНЕЕ"}
+		{"material":["Пластик ПВХ (3мм)", 0]},
+		{"material":["Пластик ПВХ (5мм)", 50]},
+		{"material":["Композит (3мм) - НАДЁЖНЕЕ", 100]}
 	],
 	"dopFunctionalPrice":
 	[
